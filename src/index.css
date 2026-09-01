@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-void: #080d12;
+    --surface-dim: #0e1418;
+    --surface-card: #101820;
+    --cyan-glow: #00bfff;
+    --cyan-dim: rgba(0, 191, 255, 0.15);
+  }
+
+  body {
+    background-color: #080d12;
+    color: #dee3e8;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Blueprint Grid Background */
+  .bg-cyber-grid {
+    background-image: 
+      linear-gradient(to right, rgba(0, 191, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 191, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bg-cyber-grid-dense {
+    background-image: 
+      linear-gradient(to right, rgba(0, 191, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 191, 255, 0.06) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  .bg-radial-vignette {
+    background: radial-gradient(circle at 50% 30%, rgba(0, 74, 101, 0.25) 0%, rgba(8, 13, 18, 0.95) 80%);
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(16, 24, 32, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(135, 146, 155, 0.16);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 34, 46, 0.85);
+  border-color: rgba(0, 191, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.15);
+}
+
+.glass-glow-cyan {
+  border: 1px solid rgba(0, 191, 255, 0.45);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.2), inset 0 0 15px rgba(0, 191, 255, 0.05);
+}
+
+/* Futuristic Scanline Effect */
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 20;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e1418;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252b2f;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00bfff;
+}
+
+/* Leaflet Dark Mode Customization */
+.leaflet-container {
+  background: #080d12 !important;
+  font-family: 'Inter', sans-serif !important;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-tile {
+  filter: brightness(0.7) invert(1) contrast(3) hue-rotate(180deg) saturate(0.4);
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(14, 20, 24, 0.95) !important;
+  color: #dee3e8 !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(0, 191, 255, 0.4) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7) !important;
+}
+
+.leaflet-popup-tip {
+  background: #0e1418 !important;
+}
+
+/* Animated Radar Pulse */
+@keyframes ping-slow {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
